@@ -1,0 +1,4 @@
+googledrivedownloader
+schedule
+psycopg2-binary
+pyTelegramBotAPI
