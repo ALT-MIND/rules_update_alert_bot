@@ -58,6 +58,14 @@ def job():
         db.close()
     else:
         print('Task finish successful without update')
+        try:
+            os.remove('1.pdf')
+        except FileNotFoundError:
+            pass
+        try:
+            os.remove('2.pdf')
+        except FileNotFoundError:
+            pass
 
 schedule.every(3).hours.do(job)
 
