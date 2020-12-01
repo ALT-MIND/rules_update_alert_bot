@@ -43,7 +43,7 @@ def job():
             bot.pin_chat_message(CHAT_ID, message.message_id)
             cursor.execute('update check_sum set rule_2_sum = ?', file_2_sum)
             db.commit()
-            print('Task finish successful')
+            print('Task finish successful with update3')
         file_1.close()
         file_2.close()
         try:
@@ -54,10 +54,11 @@ def job():
             os.remove('2.pdf')
         except FileNotFoundError:
             pass
+        db.close()
     else:
-        print('Task finish successful rr')
+        print('Task finish successful without update')
 
-schedule.every(6).hours.do(job)
+schedule.every(3).hours.do(job)
 
 while True:
     schedule.run_pending()
