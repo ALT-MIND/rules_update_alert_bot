@@ -11,6 +11,7 @@ BOT_API_KEY = os.environ['BOT_API_KEY']
 DATABASE_URL = os.environ['DATABASE_URL']
 
 bot = telebot.TeleBot(BOT_API_KEY)
+print('App start')
 
 def job():
     global CHAT_ID, DATABASE_URL
