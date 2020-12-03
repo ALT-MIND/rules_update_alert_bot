@@ -45,27 +45,19 @@ def job():
             cursor.execute('update check_sum set rule_2_sum = ?', file_2_sum)
             db.commit()
             print('Task finish successful with update3')
-        file_1.close()
-        file_2.close()
-        try:
-            os.remove('1.pdf')
-        except FileNotFoundError:
-            pass
-        try:
-            os.remove('2.pdf')
-        except FileNotFoundError:
-            pass
-        db.close()
     else:
         print('Task finish successful without update')
-        try:
-            os.remove('1.pdf')
-        except FileNotFoundError:
-            pass
-        try:
-            os.remove('2.pdf')
-        except FileNotFoundError:
-            pass
+    file_1.close()
+    file_2.close()
+    try:
+        os.remove('1.pdf')
+    except FileNotFoundError:
+        pass
+    try:
+        os.remove('2.pdf')
+    except FileNotFoundError:
+        pass
+    db.close()
 
 schedule.every(3).hours.do(job)
 
