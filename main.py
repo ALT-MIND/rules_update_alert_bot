@@ -12,7 +12,6 @@ DATABASE_URL = os.environ['DATABASE_URL']
 
 bot = telebot.TeleBot(BOT_API_KEY)
 print('App start')
-bot.send_message(CHAT_ID, "Happy New Year")
 def job():
     global CHAT_ID, DATABASE_URL
     db = psycopg2.connect(DATABASE_URL, sslmode='require')
